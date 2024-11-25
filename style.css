@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+    color: #9c004e;
+}
+
+th {
+    background-color: #9c004e;  /* Dark Red / Dark Pink */
+    color: white;               /* White text color */
+    font-weight: bold;
+}
+
+td, th {
+    border: 2px solid #9c004e;
+}
+
+td:hover {
+    color: white;
+    background-color: #b23071;
+}

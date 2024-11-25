@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $URL = "https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100";
 
@@ -10,54 +10,56 @@ $data = $response['results']; // Extract the 'results' array
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Statistics</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@latest/css/pico.min.css">
+    <link rel="stylesheet" href = "style.css">
 </head>
+
 <body>
     <header>
         <h1>Statistics of Students' Nationalities</h1>
     </header>
     <main class="container">
         <div class="overflow-auto">
-        <table role="">
-            <thead data-theme="dark">
-                <tr>
-                    <th>Year</th>
-                    <th>Semester</th>
-                    <th>The Programs</th>
-                    <th>Nationality</th>
-                    <th>Colleges</th>
-                    <th>Number of Students</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($data)): ?>
-                    <?php foreach ($data as $record): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($record['year']); ?></td>
-                            <td><?php echo htmlspecialchars($record['semester']); ?></td>
-                            <td><?php echo htmlspecialchars($record['the_programs']); ?></td>
-                            <td><?php echo htmlspecialchars($record['nationality']); ?></td>
-                            <td><?php echo htmlspecialchars($record['colleges']); ?></td>
-                            <td><?php echo htmlspecialchars($record['number_of_students']); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
+            <table role="">
+                <thead data-theme="dark">
                     <tr>
-                        <td colspan="6">No data available</td>
+                        <th>Year</th>
+                        <th>Semester</th>
+                        <th>The Programs</th>
+                        <th>Nationality</th>
+                        <th>Colleges</th>
+                        <th>No. Students</th>
                     </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-
-
+                </thead>
+                <tbody>
+                    <?php if (!empty($data)): ?>
+                        <?php foreach ($data as $record): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($record['year']); ?></td>
+                                <td><?php echo htmlspecialchars($record['semester']); ?></td>
+                                <td><?php echo htmlspecialchars($record['the_programs']); ?></td>
+                                <td><?php echo htmlspecialchars($record['nationality']); ?></td>
+                                <td><?php echo htmlspecialchars($record['colleges']); ?></td>
+                                <td><?php echo htmlspecialchars($record['number_of_students']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="6">No data available</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
         </div>
-        
+
     </main>
 </body>
+
 </html>
 
 
